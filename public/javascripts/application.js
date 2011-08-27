@@ -13,7 +13,7 @@ CoordMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
   var div = ownerDocument.createElement('DIV');
   console.log("url(/mapcoord/"+coord.x+"_"+coord.y+".png)");
   div.innerHTML = coord;
-  div.style.backgroundImage = "url(/mapcoord/"+coord.x+"_"+coord.y+".png)";
+  div.style.backgroundImage = "url(/images/pointy.gif)";
   div.style.width = this.tileSize.width + 'px';
   div.style.height = this.tileSize.height + 'px';
   div.style.fontSize = '10';
@@ -35,17 +35,20 @@ $(function()
  
 function initMapJS(points, id) {
     if(jQuery('#' + id).length == 0) // no MapCanvas element found
-	return;
+    	return;
 
     map = new google.maps.Map(jQuery('#' + id).get(0), {
-	maxZoom: 5,		// Don't zoom in too far!
-	minZoom: 5,		// Don't zoom in too far!
+        maxZoom: 5,		// Don't zoom in too far!
+        minZoom: 5,		// Don't zoom in too far!
         streetViewControl: false,
 //	mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeId: 'coordinate',
+        panControl: false,
+        zoomControl: false,
+        scaleControl: false,
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-	mapTypeControlOptions: {
-	    mapTypeIds: []
+    	mapTypeControlOptions: {
+          mapTypeIds: ['coordinate', google.maps.MapTypeId.ROADMAP]
 	}
     });
  
