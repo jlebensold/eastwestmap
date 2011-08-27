@@ -1,5 +1,4 @@
 require 'google_spreadsheet'
-require 'pp'
 class HomeController < ApplicationController
   def mapcoord
     send_file("#{Rails.root}/public/images/pointy.gif",{
