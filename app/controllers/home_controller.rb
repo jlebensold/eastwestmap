@@ -10,7 +10,9 @@ class HomeController < ApplicationController
     keys = YAML::load(ERB.new(File.read("#{Rails.root}/config/gdata.yml")).result).stringify_keys
     session = GoogleSpreadsheet.login(keys[Rails.env]["email"], keys[Rails.env]["password"])
     key = '0AhodtM_0InjodENhamhKbEZvLVVqQllwaHhTdlZLRlE'
+    
     @map = Map.new(session.spreadsheet_by_key(key).worksheets[0]).get_table
+    logger.info @map
 =begin
     @map = [{"title"=>"Berling thing",
   "date"=>"1912",
@@ -26,9 +28,8 @@ class HomeController < ApplicationController
   "lat"=>"48.869304",
   "place"=>"Stuttgart",
   "long"=>"9.320336"}]
-
-    pp @map
 =end
+  #@map
   end
 
 

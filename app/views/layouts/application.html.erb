@@ -5,12 +5,14 @@
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag 'http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js', 
     'http://maps.googleapis.com/maps/api/js?sensor=false',
-    'application' %>
+    'application',
+    'infobox' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
+  <div id="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

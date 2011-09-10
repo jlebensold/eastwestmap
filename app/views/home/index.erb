@@ -4,10 +4,10 @@
   <% @map.each do |r| %>
   points.push({"lat": <%=r["lat"]%>, 
                "long": <%= r["long"] %>,
-               "title": "<%= r["title"] %>",
+               "title": "<%= r["title"] %>, <%= r["date"] %>",
                "description": "<%= r["description"] %>"
              });
   <% end %>
 </script>
 
-<div id="map" style="width: 800px;height:500px;"></div>
+<div id="map" ></div>

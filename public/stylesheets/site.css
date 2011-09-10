@@ -1,17 +1,35 @@
-/* 
-    Document   : site
-    Created on : Aug 27, 2011, 5:04:30 PM
-    Author     : jon
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
-
-root { 
-    display: block;
+body {
+  background: #F0E8DB;
 }
+#container
+{
+  margin: 0 auto;
+  width: 900px;
+}
+
+    #map
+    {
+        width: 800px;
+        height: 500px;
+        border: 1px solid #4a4a4a;
+    }
+    .infobox
+    {
+      padding-left: 55px;
+      font-family: helvetica, arial, sans-serif;
+      color: #333;
+    }
+      .infobox h2
+      {
+        font-size: 16px;
+        padding: 10px 0;
+        line-height: 15px;
+        margin: 0 0;
+        color: #232022;
+      }
+      .infobox p
+      {
+        font-size: 12px;
+        color: #555;
+      }
 
