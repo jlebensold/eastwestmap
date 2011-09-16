@@ -8,7 +8,7 @@ body {
 }
     #ew_emblem
     {
-      background: transparent url('../images/ew-emblem.png') top left no-repeat;
+      background: transparent url('/images/ew-emblem.png') top left no-repeat;
       width: 150px;
       height: 150px;
       z-index: 10;
