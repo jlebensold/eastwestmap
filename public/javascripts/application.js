@@ -22,8 +22,8 @@ CoordMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
   return div;
 };
 
-CoordMapType.prototype.name = "Tile #s";
-CoordMapType.prototype.alt = "Tile Coordinate Map Type";
+CoordMapType.prototype.name = "1911";
+CoordMapType.prototype.alt = "The world in 1911";
 
 coordinateMapType = new CoordMapType();
 
