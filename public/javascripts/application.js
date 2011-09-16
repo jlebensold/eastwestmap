@@ -69,7 +69,37 @@ function initMapJS(points, id) {
     map.setCenter(new google.maps.LatLng(0,0),0);
 
     mapPoints(points, map);
+    drawLines(points,map);
 }
+function drawLines(points,map)
+{
+  var flightPlanCoordinates = [];
+  for(var i = 0; i < points.length; i++)
+  {
+    flightPlanCoordinates.push(new google.maps.LatLng(points[i]['lat'],points[i]['long'])); 
+  }
+ var flightPath = new google.maps.Polyline({
+             path: flightPlanCoordinates,
+               geodesic: true,
+               strokeColor: "#3D7CAA",
+               strokeOpacity: 0.2,
+               strokeWeight: 4
+           });
+      
+flightPath.setMap(map);
+
+  google.maps.event.addListener(flightPath,'mouseover',function()
+      {
+          this.strokeOpacity = 1;
+        flightPath.setMap(map);
+      });
+  google.maps.event.addListener(flightPath,'mouseout',function()
+      {
+          this.strokeOpacity = 0.2;
+        flightPath.setMap(map);
+      });
+}
+
 var infobox;
 function newBox(html)
 {
@@ -102,12 +132,12 @@ function mapPoints(points, map) {
     var image = new google.maps.MarkerImage('images/marker.png',
                     new google.maps.Size(20, 24),
                     new google.maps.Point(0,0),
-                    new google.maps.Point(0, 24));
+                    new google.maps.Point(8, 24));
 
      var shadow = new google.maps.MarkerImage("images/shadow-marker.png",
                  new google.maps.Size(33.0, 24.0),
                  new google.maps.Point(0, 0),
-                 new google.maps.Point(0.0, 20.0));
+                 new google.maps.Point(8.0, 20.0));
     for (var p = 0; p < points.length; p++) {
 	var key = points[p]['lat'] + ',' + points[p]['long'];
 	if (markers[key]) {
